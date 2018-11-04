@@ -4,6 +4,7 @@ SPM (Secure Partition Manager) is a part of the PSA Firmware Framework that is r
 
 **This page gives guidelines for silicon partners wishing to have Secure Partition Manager capabilities**
 
+
 ## Linker Scripts
 
 Silicon partners must edit the secure and non-secure linker scripts to define sections for RAM, FLASH and SHARED_RAM.
@@ -82,6 +83,31 @@ MEMORY
 ...
 ```
 
+
+## Mailbox
+
+Mailbox is the SPM mechanism in charge of Inter Processor Communication.
+Therefore, it is relevant for multi-core systems only.
+
+#### Concepts
+The mailbox mechanism is based on message queues and dispatcher threads.
+Each core has a single dispatcher thread, and a single message queue.
+The dispatcher thread waits on a mailbox event. Once this event occurs, the dispatcher thread reads and runs "tasks" accumulated on its local message queue. 
+
+#### Requirements
+The SPM mailbox mechanism requires that the platform should have the following capabilities:
+* Inter Processor Communication capabilities - The ability to notify the peer processor about an event (usually implemented with interrupts)
+* Ability to set a RAM section which is shared between the cores
+
+#### Porting
+These are the guidelines which should be followed by silicon partners with multi-core systems:
+- For each core, initialize, configure and enable the a mailbox event (usually an interrupt) at SystemInit()
+- For each core, implement the mailbox event handler (usually interrupt handler):
+  - This handler must call an ARM callback function. This is explained in more details in the [HAL Functions section](#hal-functions)
+  - It is the silicon partner's responsibility to clear the mailbox event. This can be done in the event handler.
+- For each core, implement the HAL function which notifies the peer processor about a mailbox event occurrence. This is a part of the HAL, and explained in more details in the [HAL Functions section](#hal-functions)
+
+
 ## HAL Functions
 
 Target specific code of silicon partners who wish to have SPM capabilities must:
@@ -89,9 +115,16 @@ Target specific code of silicon partners who wish to have SPM capabilities must:
 - Call other functions supplied by ARM
 
 The HAL can be logically divided into 3 different fields:
-- **Addresses:** This part of HAL allows the silicon partner to share the addresses set in the linker scripts with the SPM code. The SPM uses these addresses mostly to enforce access permissions.
-- **Mailbox:** The mailbox is the mechanism for Inter Processor Communication. This part of HAL allows the silicon partner to implement specific parts of the mailbox mechanism according to the specification of the their specific platform.
-- **Secure Partition Environment:** This part of HAL allows the silicon partner to apply their specific memory protection scheme.
+
+#### Addresses
+This part of HAL allows the silicon partner to share the addresses set in the linker scripts with the SPM code. The SPM uses these addresses mostly to enforce access permissions.
+
+#### Mailbox
+This part of HAL allows the silicon partner to implement a thin layer of the mailbox mechanism which is specific to their platform.
+It must be implemented only by silicon partners with multi-core systems.
+
+#### Secure Processing Environment
+This part of HAL allows the silicon partner to apply their specific memory protection scheme.
 
 A list of these functions can be found here [TODO: WHEN READY, ADD LINK TO DOXYGEN FILES OF HAL FUNCTIONS]
 
