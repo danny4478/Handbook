@@ -2,6 +2,8 @@
 
 SPM (Secure Partition Manager) is a part of the PSA Firmware Framework that is responsible for isolating software in Partitions, managing the execution of software within Partitions, and providing IPC between Partitions.
 
+For more information about SPM, refer to [TODO: WHEN READY, SPM OVERVIEW PAGE LINK]
+
 **This page gives guidelines for silicon partners wishing to have Secure Partition Manager capabilities**
 
 
@@ -86,8 +88,7 @@ MEMORY
 
 ## Mailbox
 
-Mailbox is the SPM mechanism in charge of Inter Processor Communication.
-Therefore, it is relevant for multi-core systems only.
+Mailbox is the SPM mechanism in charge of Inter Processor Communication, and is **relevant for multi-core systems only**.
 
 #### Concepts
 The mailbox mechanism is based on message queues and dispatcher threads.
