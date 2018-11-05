@@ -27,7 +27,7 @@ Mbed PSA supports the following platform types:
   PSA emulation layer allows seamless software portability to more 
   security oriented targets.
 - Asymmetric Multiprocessing (AMP) systems - Multi core ARMv7-M targets (for example, PSoC6
-  featuring CM4 and CM0+ cores). On these targets one of the cores is dedicated to PSA usage only and implements SPE. Mbed PSA provides PSA APIs proxy implementation on non-secure core, which redirect execution to SPE.
+  featuring CM4 and CM0+ cores). On these targets one of the cores is dedicated to PSA usage only and implements SPE. Mbed PSA provides PSA APIs proxy implementation on non-secure core, which redirects execution to SPE.
 - ARMv8-M - new generation of ARM processors featuring TrustZone-M architecture.
   PSA support for this platforms is in final stages of development and will be added to the list of Mbed PSA supported platforms shortly.
 
