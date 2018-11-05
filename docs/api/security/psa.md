@@ -2,7 +2,7 @@
 
 ### Terms and Abbreviations
 
-| Abbreviation | Description                         |
+| Term         | Meaning                             |
 |--------------|-------------------------------------|
 | PSA          | Platform Security Architecture      |
 | SPM          | Secure Partition Manager            |
