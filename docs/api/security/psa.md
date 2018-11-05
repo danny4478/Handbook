@@ -21,7 +21,7 @@ Mbed PSA provides PSA API compliance for developing robust IoT applications and
 allows to choose target type at later phase according to final application threat model.
 
 ### Platform types
-Mbed PSA supports following platform types:
+Mbed PSA supports the following platform types:
 - Non PSA platform - these are single core ARMv7-M targets. On these targets
   Mbed PSA provides same PSA services exposing PSA APIs as it would on PSA targets. 
   PSA emulation layer allows seamless software portability to more 
