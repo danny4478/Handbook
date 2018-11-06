@@ -49,7 +49,7 @@ Mbed PSA provides PSA APIs proxy implementation on non-secure core, which redire
 - ARMv8-M: New generation of ARM processors featuring TrustZone-M architecture.
 PSA support for this platforms is in final stages of development and will be added to the list of Mbed PSA supported platforms shortly.
 
-### Mbed PSA Services
+### Mbed PSA RoT Services
 
 Mbed PSA provides the following services:
 - PSA RoT internal storage
