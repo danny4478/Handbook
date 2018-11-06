@@ -21,6 +21,8 @@ Mbed PSA bridges the differences between PSA platforms and Non-PSA platforms for
 Mbed PSA provides PSA API compliance for developing robust IoT applications and 
 allows to choose platform type at later phase according to final application threat model.
 
+![diagram](png/PSA-standardized-Interfaces-diagram.png)
+
 ### Platform types
 Mbed PSA supports the following platform types:
 - Non PSA platform: These are single core ARMv7-M targets.
