@@ -4,12 +4,13 @@
 
 | Term         | Meaning                             |
 |--------------|-------------------------------------|
-| PSA          | Platform Security Architecture      |
-| SPM          | Secure Partition Manager            |
-| SPE          | Secure Processing Environment       |
-| NSPE         | Non-Secure Processing Environment   |
 | IPC          | Inter Process Communication         |
+| NSPE         | Non-Secure Processing Environment   |
+| PSA          | Platform Security Architecture      |
 | RoT          | Root Of Trust                       |
+| SAU          | Security Attribution Unit           |
+| SPE          | Secure Processing Environment       |
+| SPM          | Secure Partition Manager            |
 
 
 ### Overview
@@ -22,6 +23,20 @@ Mbed PSA provides PSA API compliance for developing robust IoT applications and
 allows to choose platform type at later phase according to final application threat model.
 
 ![diagram](png/PSA-standardized-Interfaces-diagram.png)
+
+### Secure Partition Manager (SPM)
+
+The **Secure Partition Manager (SPM)** is a PSA compliant software hypervisor that creates and manages independent Secure Partitions on Arm Cortex&reg;-M microcontrollers. It increases resilience against malware and protects secrets from leaking between different modules in the same application. The SPM complements other important security features, such as safe firmware updates and secure crypto libraries.
+
+The SPM provides hardware-enforced partitions for individual code blocks by limiting access to memories and peripherals using the existing hardware security features of the Cortex&reg;-M microcontrollers. It isolates software in partitions, managing the execution of software within those partitions and providing IPC between the partitions. Correct use of SPM prevents malware from becoming resident on the device and enables protection of device secrets, such as cryptographic keys.
+
+#### Isolating partitions in the Secure Processing Environment
+
+The SPM and the secure partitions are located in the Secure Processing Environment (SPE), isolating them from the Non-Secure Processing Environment (NSPE), which contains the application firmware, OS kernel and libraries, and other nonsecure hardware resources.
+
+A secure partition is a container for one or more root of trust services, and a platform may have multiple secure partitions. Secure partitions provide the execution environment for security functionality.
+
+Platform hardware, such as the Security Attribution Unit (SAU) and Memory Protection Unit (MPU) in the new ARMv8-M platforms, enforces the separation of partitions. Other platforms may use different mechanisms to provide equivalent isolation for the partitions.
 
 ### Platform types
 Mbed PSA supports the following platform types:
