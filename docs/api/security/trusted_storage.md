@@ -18,6 +18,7 @@ The API allows users to:
 
 The Internal Trusted Storage supports a "write once" feature which enforces that the data associated with a key will not be able to be modified or deleted.
 
+**Note:** PSA Internal Trusted Storage is designed for the use of PSA Crypto Service. ARM recommends that applications use other storage stacks.
 
 ### Internal Trusted Storage API Reference
 
