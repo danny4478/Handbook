@@ -86,6 +86,8 @@
 
 **int** - Short for "integer", it is a variable type that can be used to define numeric variables holding whole numbers.
 
+**IPC** - [Interprocess communication](/docs/development/apis/mbed-psa.html).
+
 ### L
 
 **Library** - A module that you can use to build applications.
@@ -104,6 +106,8 @@
 
 **Nibble** - A unit of digital information that consists of 4 bits (see `Bit`).
 
+**NSPE** - [Nonsecure processing environment](/docs/development/apis/mbed-psa.html).
+
 ### P
 
 **Platform** - See `board`.
@@ -111,6 +115,8 @@
 **Porting** - A process to add target support to Mbed OS.
 
 **Program** - See `application`.
+
+**PSA** - [Platform security architecture](/docs/development/apis/mbed-psa.html).
 
 **Pull Request** - Used by version-controlled repositories to propose and collaborate on changes.
 
@@ -124,11 +130,19 @@
 
 **RTOS** - [Real-Time Operating System](/docs/development/reference/rtos.html).
 
+**RoT** - [Root of trust](/docs/development/apis/mbed-psa.html).
+
 ### S
+
+**SAU** - [Security attribution unit](/docs/development/apis/mbed-psa.html).
+
+**SPE** - [Secure processing environment](/docs/development/apis/mbed-psa.html).
 
 **Serial** - A [protocol](/docs/development/reference/serial.html) used in data transmission for the transfer of individual bits of information.
 
 **SPI** - [Serial Peripheral Interface](/docs/development/reference/spi.html).
+
+**SPM** - [Secure partition manager](/docs/development/apis/mbed-psa.html).
 
 **Static Memory** - The allocation of memory at compile time, before the program is executed.
 
